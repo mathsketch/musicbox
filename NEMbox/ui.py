@@ -656,7 +656,8 @@ class Ui(object):
             self.screen.timeout(100)
 
         elif datatype == "help":
-            for i in range(offset, min(len(datalist), offset + step)):
+            end = min(len(datalist), offset + step)
+            for i in range(offset, end):
                 if i == index:
                     self.addstr(
                         i - offset + 9,
@@ -682,10 +683,10 @@ class Ui(object):
                     )
 
             self.addstr(
-                20, self.startcol, "NetEase-MusicBox 基于Python，所有版权音乐来源于网易，本地不做任何保存"
+                end + 10, self.startcol, "NetEase-MusicBox 基于Python，所有版权音乐来源于网易，本地不做任何保存"
             )
-            self.addstr(21, self.startcol, "按 [G] 到 Github 了解更多信息，帮助改进，或者Star表示支持~~")
-            self.addstr(22, self.startcol, "Build with love to music by omi")
+            self.addstr(end + 11, self.startcol, "按 [G] 到 Github 了解更多信息，帮助改进，或者Star表示支持~~")
+            self.addstr(end + 12, self.startcol, "Build with love to music by omi")
 
         self.screen.refresh()
 
