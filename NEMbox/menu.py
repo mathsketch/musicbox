@@ -20,6 +20,7 @@ import webbrowser
 from collections import namedtuple
 from copy import deepcopy
 from threading import Timer
+from keybind import KeyBinder
 
 from fuzzywuzzy import process
 
@@ -42,7 +43,6 @@ from .utils import notify
 locale.setlocale(locale.LC_ALL, "")
 
 log = logger.getLogger(__name__)
-
 
 def carousel(left, right, x):
     # carousel x in [left, right]
@@ -586,6 +586,16 @@ class Menu(object):
         )
         if pyqt_activity:
             show_lyrics_new_process()
+        
+        # global key binding
+        KeyBinder.activate({
+            self.config.get('global_play_pause'): self.space_key_event,
+            self.config.get('global_next'): self.next_song,
+            self.config.get('global_previous'): self.previous_song,
+            self.config.get('global_volume_up'): self.player.volume_up,
+            self.config.get('global_volume_down'): self.player.volume_down,
+        }, run_thread=True)
+
         pre_key = -1
         keylist = self.key_list
         self.parser = cmd_parser(keylist)

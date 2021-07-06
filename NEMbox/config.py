@@ -54,21 +54,33 @@ class Config(Singleton):
                 ),
             },
             "global_play_pause": {
-                "value": "<ctrl><alt>p",
-                "default": "<ctrl><alt>p",
+                "value": "Ctrl-Alt-P",
+                "default": "Ctrl-Alt-P",
                 "describe": "Global keybind for play/pause."
                 "Uses gtk notation for keybinds.",
             },
             "global_next": {
-                "value": "<ctrl><alt>j",
-                "default": "<ctrl><alt>j",
+                "value": "Ctrl-Alt-Right",
+                "default": "Ctrl-Alt-Right",
                 "describe": "Global keybind for next song."
                 "Uses gtk notation for keybinds.",
             },
             "global_previous": {
-                "value": "<ctrl><alt>k",
-                "default": "<ctrl><alt>k",
+                "value": "Ctrl-Alt-Left",
+                "default": "Ctrl-Alt-Left",
                 "describe": "Global keybind for previous song."
+                "Uses gtk notation for keybinds.",
+            },
+            "global_volume_up": {
+                "value": "Ctrl-Alt-Up",
+                "default": "Ctrl-Alt-Up",
+                "describe": "Global keybind for volume up."
+                "Uses gtk notation for keybinds.",
+            },
+            "global_volume_down": {
+                "value": "Ctrl-Alt-Down",
+                "default": "Ctrl-Alt-Down",
+                "describe": "Global keybind for volume down."
                 "Uses gtk notation for keybinds.",
             },
             "notifier": {

@@ -232,7 +232,7 @@ class Ui(object):
                 self.now_tlyric_index = self.now_tlyric_index + 1
                 next_tlyric_time = get_lyric_time(tlyrics[self.now_tlyric_index + 1])
 
-        if tlyrics:
+        if tlyrics and self.config.get('translation'):
             self.now_lyric = append_translation(
                 tlyrics[self.now_tlyric_index], lyrics[self.now_lyric_index]
             )
