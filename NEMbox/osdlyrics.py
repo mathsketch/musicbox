@@ -19,7 +19,10 @@ try:
     import dbus.service
     import dbus.mainloop.glib
 
-    pyqt_activity = True
+    if config.get("osdlyrics"):
+        pyqt_activity = True
+    else:
+        pyqt_activity = False
 except ImportError:
     pyqt_activity = False
     log.warn("qtpy module not installed.")
@@ -127,7 +130,7 @@ if pyqt_activity:
 
 
 def stop_lyrics_process():
-    if pyqt_activity:
+    if pyqt_activity and config.get("osdlyrics"):
         bus = dbus.SessionBus().get_object("org.musicbox.Bus", "/")
         bus.exit(dbus_interface="local.musicbox.Lyrics")
 
